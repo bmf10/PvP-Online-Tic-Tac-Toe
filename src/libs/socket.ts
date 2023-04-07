@@ -1,6 +1,8 @@
 import { io } from "socket.io-client"
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+const baseUrl = typeof window === "object" ? window.location.origin : ""
+
+console.log(baseUrl)
 
 const socket = io({
   path: "/api/socket",
